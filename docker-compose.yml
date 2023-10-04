@@ -1,0 +1,25 @@
+version: "3.1"
+
+services:
+
+  db:
+    image: postgres:11.21-alpine3.17
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: "root"
+    ports:
+      - "5432:5432"
+    container_name: backend_database
+
+  backend:
+    build: ./BackEnd/.
+    container_name: backend_springboot
+    ports:
+      - 8080:8080
+    environment:
+      db-url: jdbc:postgresql://db:5432/kanBan
+      db-username: postgres
+      db-password: root
+    depends_on:
+      - db
+    restart: always
