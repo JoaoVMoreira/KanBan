@@ -1,0 +1,18 @@
+REQUISIÇÕES INICIAIS
+
+Listar Projetos GET
+Cadastrar projeto POST
+Deletar projeto + filas e tarefas DELETE
+
+Listar Filas (3 filas padrões){To do, Doing, Finish} GET
+Cadastrar nova fila POST
+Excluir fila + Tarefas DELETE
+
+Cadastrar Tarefa POST
+Listar Tarefas por fila GET
+Deletar tarefa DELETE
+Mudar Fila PUT
+
+Listar Colaboradores GET
+Adicionar Colaborador POST
+Deletar Colaborador (Se nao tiver Tarefa vinculada) DELETE
