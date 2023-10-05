@@ -24,12 +24,17 @@ public class Tarefa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nomeTarefa;
+    @ManyToOne
+    @JoinColumn(name = "colaborador_id")
     private Colaborador colaborador;
     private LocalDate dataLimite;
-    @Enumerated(EnumType.STRING)
-    private Urgencia urgencia = Urgencia.REGULAR;
+
     private String descricao;
+    @ManyToOne
+    @JoinColumn(name = "projeto_id")
     private Projeto projetoId;
+    @ManyToOne
+    @JoinColumn(name = "fila_Id")
     private Fila filaAtual;
     private LocalDateTime dataCriacao;
 }
