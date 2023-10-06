@@ -3,6 +3,7 @@ package com.JoaoMoreira.KanBan.Controllers;
 import com.JoaoMoreira.KanBan.Models.Colaborador.Colaborador;
 import com.JoaoMoreira.KanBan.Models.Colaborador.ColaboradorRepository;
 import com.JoaoMoreira.KanBan.Models.Colaborador.DadosCadastraColaborador;
+import com.JoaoMoreira.KanBan.Models.Colaborador.DadosListarColaborador;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -38,6 +39,6 @@ public class ColaboradorController {
     public ResponseEntity<DadosListarColaborador> deletar(@PathVariable Long id){
         var colaborador = repository.getReferenceById(id);
         repository.delete(colaborador);
-        return ResponseEntity.ok().body(new DadosListarColaborador(colaborador));
+        return ResponseEntity.ok().build();
     }
 }

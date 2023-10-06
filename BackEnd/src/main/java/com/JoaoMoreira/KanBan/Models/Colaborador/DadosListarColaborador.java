@@ -1,4 +1,4 @@
-package com.JoaoMoreira.KanBan.Controllers;
+package com.JoaoMoreira.KanBan.Models.Colaborador;
 
 import com.JoaoMoreira.KanBan.Models.Colaborador.Colaborador;
 

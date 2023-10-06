@@ -18,4 +18,8 @@ public class Fila {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nomeFila;
+
+    public Fila(DadosCadastraFila dados) {
+        this.nomeFila = dados.nomeFila();
+    }
 }
