@@ -1,5 +1,6 @@
 package com.JoaoMoreira.KanBan.Models.Tarefa;
 
+import com.JoaoMoreira.KanBan.Controllers.DadosCadastraTarefa;
 import com.JoaoMoreira.KanBan.Models.Colaborador.Colaborador;
 import com.JoaoMoreira.KanBan.Models.Fila.Fila;
 import com.JoaoMoreira.KanBan.Models.Projeto.Projeto;
@@ -28,13 +29,24 @@ public class Tarefa {
     @JoinColumn(name = "colaborador_id")
     private Colaborador colaborador;
     private LocalDate dataLimite;
-
+    @Enumerated(EnumType.STRING)
+    private Urgencia urgencia = Urgencia.REGULAR;
     private String descricao;
-    @ManyToOne
-    @JoinColumn(name = "projeto_id")
-    private Projeto projetoId;
     @ManyToOne
     @JoinColumn(name = "fila_Id")
     private Fila filaAtual;
-    private LocalDateTime dataCriacao;
+    private LocalDateTime dataCriacao = LocalDateTime.now();
+
+    public Tarefa(DadosCadastraTarefa dados, Fila filaAtual, Colaborador colaboradorId) {
+        this.nomeTarefa = dados.nomeTarefa();
+        this.colaborador = colaboradorId;
+        this.dataLimite = dados.dataLimite();
+        this.urgencia = dados.urgencia();
+        this.descricao = dados.descricao();
+        this.filaAtual = filaAtual;
+    }
+
+    public void alteraFila(Fila fila) {
+        this.filaAtual = fila;
+    }
 }
