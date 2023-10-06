@@ -17,4 +17,8 @@ public class Projeto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nomeProjeto;
+
+    public Projeto(DadosCadastraProjeto dados) {
+        this.nomeProjeto = dados.nomeProjeto();
+    }
 }

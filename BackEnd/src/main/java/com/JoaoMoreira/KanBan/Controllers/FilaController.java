@@ -38,6 +38,7 @@ public class FilaController {
     @DeleteMapping("/{id}")
     public ResponseEntity<DadosListarFila> deletar(@PathVariable Long id){
         var fila = repository.getReferenceById(id);
+        repository.delete(fila);
         return ResponseEntity.ok().build();
     }
 }
