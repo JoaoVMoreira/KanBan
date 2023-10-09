@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -30,6 +31,11 @@ public class TarefaController {
     @PostMapping
     @Transactional
     public ResponseEntity<DadosListarTarefa> cadastrar(@RequestBody @Valid DadosCadastraTarefa dados, UriComponentsBuilder uriComponentsBuilder){
+
+        if(dados.dataLimite().isBefore(LocalDate.now())){
+            throw new RuntimeException("A data limite deve ser superior a data atual");
+        }
+
         var filaAtual = filaRepository.findById(dados.filaAtual()).get();
         var colaboradorId = colaboradorRepository.findById(dados.colaboradorId()).get();
         var tarefa = new Tarefa(dados, filaAtual, colaboradorId);
