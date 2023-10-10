@@ -17,7 +17,9 @@ public record DadosCadastraTarefa(
         String nomeTarefa,
         @NotNull
         Long colaboradorId,
+        @NotNull
         LocalDate dataLimite,
+        @NotNull
         Urgencia urgencia,
         String descricao,
         @NotNull

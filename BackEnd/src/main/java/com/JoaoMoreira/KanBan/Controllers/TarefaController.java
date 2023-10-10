@@ -29,11 +29,10 @@ public class TarefaController {
     private ColaboradorRepository colaboradorRepository;
 
     @PostMapping
-    @Transactional
     public ResponseEntity<DadosListarTarefa> cadastrar(@RequestBody @Valid DadosCadastraTarefa dados, UriComponentsBuilder uriComponentsBuilder){
 
         if(dados.dataLimite().isBefore(LocalDate.now())){
-            throw new RuntimeException("A data limite deve ser superior a data atual");
+            throw new IllegalArgumentException("Data inválida");
         }
 
         var filaAtual = filaRepository.findById(dados.filaAtual()).get();

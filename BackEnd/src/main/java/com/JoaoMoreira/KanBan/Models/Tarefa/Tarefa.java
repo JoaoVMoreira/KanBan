@@ -29,8 +29,9 @@ public class Tarefa {
     @JoinColumn(name = "colaborador_id")
     private Colaborador colaborador;
     private LocalDate dataLimite;
+
     @Enumerated(EnumType.STRING)
-    private Urgencia urgencia = Urgencia.REGULAR;
+    private Urgencia urgencia;
     private String descricao;
     @ManyToOne
     @JoinColumn(name = "fila_Id")
