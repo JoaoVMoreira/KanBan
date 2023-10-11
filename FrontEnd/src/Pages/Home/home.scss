@@ -1,0 +1,13 @@
+.conteiner-filas{
+    border: 1px solid blue;
+    margin-left: 5%;
+    height: 98vh;
+    margin-top: 8px;
+    width: 79%;
+    display: flex;
+    flex-direction: row;
+    .fila{
+        //border: 1px solid green;
+        height: auto;
+    }
+}
