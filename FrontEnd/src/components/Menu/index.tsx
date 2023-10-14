@@ -8,8 +8,8 @@ function Menu(){
                     <p>PROJETOS</p>
                     <button>+</button>
                 </div>
-                <div className="btn-colaborador">
-                    <button>COLABORADORES</button>
+                <div >
+                    <button className="btn-colaborador">COLABORADORES</button>
                 </div>
                 <div className="lista-projetos">
                     <button>NOME PROJETO</button>

@@ -4,6 +4,81 @@
     width: 280px;
     margin-top: 8px;
     margin-left: 12px;
-    border: 1px solid red;
     height: 98vh;
+}
+.projeto-menu{
+    height: 9%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+    margin-bottom: 5%;
+    p{
+        font-size: 24px;
+        font-weight: 700;
+        margin-right: 25%;
+        margin-left: 10%;
+        background-color: white;
+    }
+    button{
+        width: 35px;
+        height: 35px;
+        border: none;
+        border-radius: 6px;
+        background-color: #3F61C7;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 38px;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    button:hover{
+        background-color: #3651a1;
+    }
+}
+
+.btn-colaborador{
+    height: 80px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    background-color: #3F61C7;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-bottom: 5%;
+}
+
+.btn-colaborador:hover{
+    background-color: #3651a1;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.lista-projetos{
+    height: 80%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+    button{
+        width: 100%;
+        height: 65px;
+        background-color: white;
+        font-size: 20px;
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+    }
+    button:hover{
+        border-right: 5px solid #3F61C7;
+        background-color: #f2f2f2;
+    }
 }
