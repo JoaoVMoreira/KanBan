@@ -1,5 +1,6 @@
 import Menu from "../../components/Menu";
 import "./home.scss"
+import { MdFiberNew } from "react-icons/md";
 
 function Home(){
     return(
@@ -8,48 +9,24 @@ function Home(){
                 <Menu/>
                 <div className="conteiner-filas">
                     <div className="fila">
-                        <div className="title">
-                            <h2>TO DO</h2>
+                        <div className="titulo">
+                            <MdFiberNew/><h2>TO DO</h2>
+                        </div>
                             <div className="tarefa">
                                 <h3>NOME TAREFA</h3>
                                 <p>nome funcionario</p>
                                 <span>
-                                    <p>Urgência: Regular</p>
-                                    <p>!</p>
+                                    <span>
+                                        <p>Urgência: Regular</p>
+                                        <p className="danger">!</p>
+                                    </span>
+                                    
                                 </span>
                             </div>
-                        </div>
+                            
                         <button>+</button>
                     </div>
-                    <div className="fila">
-                        <div className="title">
-                            <h2>DOING</h2>
-                            <div className="tarefa">
-                                <h3>NOME TAREFA</h3>
-                                <p>nome funcionario</p>
-                                <span>
-                                    <p>Urgência: Regular</p>
-                                    <p>!</p>
-                                </span>
-                            </div>
-                            <button>+</button>
-                        </div>
-                    </div>
-                    <div className="fila">
-                        <div className="title">
-                            <h2>FINISHED</h2>
-                            <div className="tarefa">
-                                <h3>NOME TAREFA</h3>
-                                <p>nome funcionario</p>
-                                <span>
-                                    <p>Urgência: Regular</p>
-                                    <p>!</p>
-                                </span>
-                            </div>
-                            <button>+</button>
-                        </div>
-                    </div>
-                    <div className="fila">
+                    <div className="new-fila">
                         <button>+</button>
                     </div>
                 </div>

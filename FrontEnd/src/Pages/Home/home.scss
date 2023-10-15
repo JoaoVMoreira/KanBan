@@ -1,13 +1,122 @@
 .conteiner-filas{
-    border: 1px solid blue;
     margin-left: 5%;
-    height: 98vh;
+    height: 99.1vh;
     margin-top: 8px;
     width: 79%;
     display: flex;
     flex-direction: row;
     .fila{
-        //border: 1px solid green;
-        height: auto;
+        margin-top: 3%;
+        width: 18%;
+        display: flex;
+        height: fit-content;
+        flex-direction: column;
+        align-items: center;
+        background-color: #6E83E0;
+        border-radius: 15px;
+        position: relative;
+        .titulo{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 50px;
+            width: 100%;
+            background-color: #6E83E0;
+            color: white;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+            
+            svg{
+                font-size: 32px;
+                margin-left: 3%;
+                margin-right: 5%;
+            }
+            h2{
+                font-weight: 500;
+                font-size: 20px;
+            }
+        }
+        .tarefa{
+            width: 100%;
+            height: 120px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            
+            h3{
+                font-size: 26px;
+                margin-left: 10%;
+                font-weight: 700;
+            }
+            p{
+                margin-left: 10%;
+                font-size: 14px;
+            }
+            span{
+                margin-left: 1.8%;
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                p{
+                    font-size: 20px;
+                    margin-top: 8%;
+                }
+                p:last-child{
+                    color: red;
+                    font-weight: 700;
+                    font-size: 22px;
+                    margin-left: 15%;
+                }
+            }
+        }
+        .tarefa:hover{
+            transition: 0.1s;
+            background-color: #778CEC;
+            border-end-end-radius: 15px;
+            border-end-start-radius: 15px;
+        }
+        button{
+            position: absolute;
+            bottom: -25%;
+            width: 25px;
+            height: 25px;
+            border: none;
+            border-radius: 6px;
+            background-color: #6E83E0;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        button:hover{
+            transition: 0.2s;
+            background-color: #3651a1;
+        }
+    }
+    .new-fila{
+        margin-top: 3%;
+        margin-left: 5%;
+        button{
+            width: 35px;
+            height: 35px;
+            border: none;
+            border-radius: 6px;
+            background-color: #6E83E0;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 38px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        button:hover{
+            transition: 0.2s;
+            background-color: #3651a1;
+        }
     }
 }

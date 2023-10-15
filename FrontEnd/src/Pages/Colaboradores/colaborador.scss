@@ -1,17 +1,16 @@
 .conteiner{
     margin-left: 5%;
     width: 79%;
-    height: 85vh;
+    height: 98.8vh;
     margin-top: 8px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: center;    
 }
 
 .list-colaboradores{
     margin-right: 15%;
-    
-
+    margin-top: 8%;
     .colaborador{
         background-color: white;
         height: 110px;
@@ -45,13 +44,11 @@
     background-color: #6E83E0;
     color: white;
     svg{
-        background-color: #6E83E0;
         font-size: 32px;
         margin-left: 3%;
         margin-right: 5%;
     }
     h2{
-        background-color: #6E83E0;
         font-size: 20px;
         font-weight: 500;
         color: white;
@@ -59,6 +56,7 @@
     }
 }
 .add-colaborador{
+    margin-top: 8%;
     width: 40%;
     height: 32%;
     border-radius: 15px;
@@ -91,7 +89,7 @@
         }
         button{
             position: absolute;
-            top: 36%;
+            top: 48%;
             width: 35px;
             height: 35px;
             border: none;
@@ -107,6 +105,7 @@
         }
     
         button:hover{
+            transition: 0.2s;
             background-color: #3651a1;
         }
     }
