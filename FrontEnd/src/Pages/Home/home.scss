@@ -7,7 +7,7 @@
     flex-direction: row;
     .fila{
         margin-top: 3%;
-        width: 18%;
+        width: 280px;
         display: flex;
         height: fit-content;
         flex-direction: column;
@@ -15,6 +15,7 @@
         background-color: #6E83E0;
         border-radius: 15px;
         position: relative;
+        margin-left: 10px;
         .titulo{
             display: flex;
             flex-direction: row;
@@ -112,11 +113,21 @@
             justify-content: center;
             font-size: 38px;
             font-weight: 700;
+            margin-bottom: 10px;
             cursor: pointer;
         }
         button:hover{
             transition: 0.2s;
             background-color: #3651a1;
+        }
+
+        button:last-child{
+            background-color: red;
+            font-size: 26px;
+        }
+        button:last-child:hover{
+            background-color: rgb(187, 4, 4);
+            transition: 0.2s;
         }
     }
 }
