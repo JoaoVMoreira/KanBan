@@ -1,10 +1,10 @@
 export interface IColaborador{
     nome: string,
-    cpf: number
+    cpf: string
 }
 
 export interface IColaboradores{
     id: number,
     nome: string,
-    cpf: number
+    cpf: string
 }

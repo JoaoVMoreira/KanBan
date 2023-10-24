@@ -11,6 +11,9 @@ export function AddFilaModal({isOpen, close}: IModal){
     const { mutate, isSuccess } = PostFila()
 
     function handleAddFila(){
+        if(nomeFila == ''){
+            alert("Insira o nome da fila!")
+        }
         const data= {
             nomeFila: nomeFila,
             projetoId: projetoId
@@ -33,12 +36,14 @@ export function AddFilaModal({isOpen, close}: IModal){
                                 <button onClick={close}>X</button>
                             </span>
                         </div>
-                        <label htmlFor="input">
-                            <p>Nome Fila:</p>
-                            <input type="text" value={nomeFila} onChange={(e)=>{setNomeFila(e.target.value)}}/>
-                        </label>
+                        <form onSubmit={handleAddFila}>
+                            <label htmlFor="input">
+                                <p>Nome Fila:</p>
+                                <input type="text" value={nomeFila} onChange={(e)=>{setNomeFila(e.target.value)}}/>
+                            </label>
 
-                        <button onClick={handleAddFila}>+</button>
+                            <button type="submit">+</button>
+                        </form>
                     </div>
                 </div>
             </div>

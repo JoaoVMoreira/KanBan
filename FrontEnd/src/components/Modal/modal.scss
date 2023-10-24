@@ -48,7 +48,8 @@
             }
             button{
                 position: absolute;
-                left: 90%;
+                left: 40%;
+                top: 1%;
                 background-color: #EDEDED;
                 border: none;
                 width: 30px;
@@ -68,10 +69,13 @@
             }
         }
 
-        label{
-            color: white;
+        form{
             width: 80%;
             height: 40%;
+            
+        }
+        label{
+            color: white;
             display: flex;
             flex-direction: column;
             justify-content: baseline;
@@ -88,7 +92,10 @@
         }
 
         button{
+            margin-left: 50%;
+            margin-top: 4%;
             background-color: #EDEDED;
+            border: 1px solid red;
             border: none;
             width: 40px;
             height: 40px;

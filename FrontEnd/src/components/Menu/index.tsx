@@ -35,7 +35,12 @@ function Menu(){
                 <div >
                 <a href="/colaboradores"><button className="btn-colaborador">COLABORADORES</button></a>
                 </div>
-                <div className="lista-projetos">
+                {!data || data.length === 0 ?(
+                    <div className="lista-projetos">
+                        <p>Sem projetos cadastrados</p>
+                    </div>
+                ): (
+                    <div className="lista-projetos">
                     {
                         data?.map((item:IProjetos)=>{
                             return(
@@ -44,6 +49,8 @@ function Menu(){
                         })
                     }
                 </div>
+                )}
+                
             </div>
             <AddProjetoModal isOpen={isOpenModal} close={handleCloseModal}/>
         </>

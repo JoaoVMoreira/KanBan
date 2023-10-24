@@ -35,12 +35,15 @@ function AddProjetoModal({isOpen, close}:IModal){
                                 <button onClick={close}>X</button>
                             </span>
                         </div>
-                        <label htmlFor="input">
-                            <p>Nome Projeto:</p>
-                            <input type="text" value={nome} onChange={(e)=>{setNome(e.target.value)}}/>
-                        </label>
+                        <form onSubmit={handleCadastraProjeto}>
+                            <label htmlFor="input">
+                                <p>Nome Projeto:</p>
+                                <input type="text" value={nome} onChange={(e)=>{setNome(e.target.value)}}/>
+                            </label>
 
-                        <button onClick={handleCadastraProjeto}>+</button>
+                            <button type="submit">+</button>
+                        </form>
+                        
                     </div>
                 </div>
             </>

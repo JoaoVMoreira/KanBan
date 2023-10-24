@@ -38,11 +38,11 @@ const DeleteData = async (id: number) => {
 }
 
 export function DeleteFila(){
-    const query = useMutation({
+    const mutation = useMutation({
         mutationKey: ['delete-fila'],
         mutationFn: DeleteData
     })
 
-    return query
+    return mutation
 }
 

@@ -36,6 +36,17 @@
                 font-weight: 500;
                 font-size: 20px;
             }
+
+            button{
+                background-color: transparent;
+                position: absolute;
+                bottom: 78%;
+                left: 85%;
+            }
+            button:hover{
+                background-color: transparent;
+                transform: scale(1.1);
+            }
         }
         .tarefa{
             width: 100%;
