@@ -1,9 +1,7 @@
 package com.JoaoMoreira.KanBan.Models.Tarefa;
 
-import com.JoaoMoreira.KanBan.Controllers.DadosCadastraTarefa;
 import com.JoaoMoreira.KanBan.Models.Colaborador.Colaborador;
 import com.JoaoMoreira.KanBan.Models.Fila.Fila;
-import com.JoaoMoreira.KanBan.Models.Projeto.Projeto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

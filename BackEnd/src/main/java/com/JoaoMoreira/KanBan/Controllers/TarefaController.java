@@ -3,10 +3,7 @@ package com.JoaoMoreira.KanBan.Controllers;
 
 import com.JoaoMoreira.KanBan.Models.Colaborador.ColaboradorRepository;
 import com.JoaoMoreira.KanBan.Models.Fila.FilaRepository;
-import com.JoaoMoreira.KanBan.Models.Tarefa.DadosAlterarFila;
-import com.JoaoMoreira.KanBan.Models.Tarefa.DadosListarTarefa;
-import com.JoaoMoreira.KanBan.Models.Tarefa.Tarefa;
-import com.JoaoMoreira.KanBan.Models.Tarefa.TarefaRepository;
+import com.JoaoMoreira.KanBan.Models.Tarefa.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/tarefa")
+@CrossOrigin(origins = "*")
 public class TarefaController {
 
     @Autowired

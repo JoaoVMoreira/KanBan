@@ -1,18 +1,26 @@
 REQUISIÇÕES INICIAIS
 
-Listar Projetos GET
-Cadastrar projeto POST
-Deletar projeto + filas e tarefas DELETE
+Listar Projetos GET OK
+Cadastrar projeto POST OK
+Deletar projeto + filas e tarefas DELETE OK
 
-Listar Filas (3 filas padrões){To do, Doing, Finish} GET
-Cadastrar nova fila POST
-Excluir fila + Tarefas DELETE
+Listar Filas (3 filas padrões){To do, Doing, Finish} GET OK
+Cadastrar nova fila POST OK
+Excluir fila + Tarefas DELETE OK
 
-Cadastrar Tarefa POST
-Listar Tarefas por fila GET
-Deletar tarefa DELETE
-Mudar Fila PUT
+Cadastrar Tarefa POST OK
+Listar Tarefas por fila GET OK
+Deletar tarefa DELETE OK
+Mudar e
 
-Listar Colaboradores GET
-Adicionar Colaborador POST
-Deletar Colaborador (Se nao tiver Tarefa vinculada) DELETE
+Listar Colaboradores GET OK
+Adicionar Colaborador POST OK
+Deletar Colaborador (Se nao tiver Tarefa vinculada) DELETE OK
+
+
+
+VALIDAÇÕES
+
+Data de limite deve ser igual ou superior a data atual OK
+Tratar erros OK
+Tratar retornos dos erros OK

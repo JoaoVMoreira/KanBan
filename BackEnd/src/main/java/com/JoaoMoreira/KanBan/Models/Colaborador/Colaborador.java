@@ -20,7 +20,7 @@ public class Colaborador {
     private String nome;
 
     @Column(unique = true)
-    private Long cpf;
+    private String cpf;
 
     public Colaborador(DadosCadastraColaborador dados) {
         this.cpf = dados.cpf();

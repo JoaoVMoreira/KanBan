@@ -1,4 +1,4 @@
-package com.JoaoMoreira.KanBan.Controllers;
+package com.JoaoMoreira.KanBan.Models.Tarefa;
 
 import com.JoaoMoreira.KanBan.Models.Colaborador.Colaborador;
 import com.JoaoMoreira.KanBan.Models.Fila.Fila;

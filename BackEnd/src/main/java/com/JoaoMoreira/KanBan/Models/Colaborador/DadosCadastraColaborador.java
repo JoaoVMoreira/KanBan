@@ -7,6 +7,6 @@ public record DadosCadastraColaborador(
         @NotBlank
         String nome,
         @NotNull
-        Long cpf
+        String cpf
 ) {
 }

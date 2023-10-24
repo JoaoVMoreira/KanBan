@@ -1,5 +1,6 @@
 package com.JoaoMoreira.KanBan.Models.Fila;
 
+import com.JoaoMoreira.KanBan.Models.Projeto.Projeto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,8 +19,17 @@ public class Fila {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nomeFila;
+    @ManyToOne
+    @JoinColumn(name = "projeto_Id")
+    private Projeto projeto;
 
-    public Fila(DadosCadastraFila dados) {
+    public Fila(DadosCadastraFila dados, Projeto projeto) {
         this.nomeFila = dados.nomeFila();
+        this.projeto = projeto;
+    }
+
+    public Fila(String nomeFila, Projeto projeto) {
+        this.nomeFila = nomeFila;
+        this.projeto = projeto;
     }
 }
