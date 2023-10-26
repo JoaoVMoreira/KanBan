@@ -2,7 +2,7 @@ import { IFila } from "../Interfaces/IFila";
 import { api } from "./axios"
 import { useMutation, useQuery } from 'react-query'
 
-const fetchData = async () => {
+export const fetchData = async () => {
     const id = localStorage.getItem("projetoId")
     const response = await api.get(`/filas/${id}`)
     return response.data;

@@ -15,6 +15,7 @@ import { AddModalTarefa } from "../../components/Modal/AddTarefaModal";
 function Home(){
 
     const { data } = GetFila()
+    
     const[DeleteModal, setDeleteModal]= useState<boolean>(false)
     const[deleteFila, setDeleteFila]= useState<boolean>(false)
     const[addTarefa, setAddTarefa] = useState<boolean>(false)
@@ -44,6 +45,7 @@ function Home(){
         setDeleteFila(true)
         setSelectedFila(item)
     }
+
     return(
         <>
             <div className="page">

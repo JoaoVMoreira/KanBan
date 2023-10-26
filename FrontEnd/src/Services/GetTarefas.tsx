@@ -1,19 +1,21 @@
 import { IAlteraTarefa, ITarefa } from "../Interfaces/ITarefa";
 import { api } from "./axios"
-import { useMutation } from "react-query"
+import { useMutation, useQuery } from "react-query"
 
-const fetchData = async (idFila:number) => {
+export const fetchData = async (idFila:number) => {
     const response = await api.get(`/tarefa/${idFila}`)
     return response.data;
 }
 
-export function GetTarefas(){
-    const mutation = useMutation({
-        mutationFn: fetchData,
-        mutationKey: ['tarefa-get']
+export function GetTarefas(idFila:number){
+    const query = useQuery({
+        queryFn: async () =>{
+            const data = await fetchData(idFila)
+            return data
+        },
+        queryKey: ['tarefa-get']
     })
-
-    return mutation;
+    return query;
 }
 
 const PostData = async (data: ITarefa) => {
