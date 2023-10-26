@@ -7,6 +7,7 @@ import {useState} from 'react'
 import { useNavigate } from "react-router-dom";
 import DeleteColaboradorModal from "../../components/Modal/DeleteColaboradorModal";
 import InputMask from 'react-input-mask'
+import { ToastContainer, toast} from 'react-toastify'
 
 function Colaboradores(){
 
@@ -19,30 +20,32 @@ function Colaboradores(){
 
     const { mutate, isSuccess } = PostColaboradores();
 
-    function handleCadastraColaborador(){
+    function handleCadastraColaborador(evento: any){
         if(nome == '' || cpf == ''){
-            alert("Favor preencher todos os campos")
-        }
-        const data: IColaborador = {
-            nome: nome,
-            cpf: cpf
-        }
-
-        mutate(data)
-
-        if(isSuccess){
-            alert("Colaborador cadastrado com sucesso")
-            navigate(0)
+            evento.preventDefault()
+            toast.warn("Favor preencher todos os campos!")
+        }else{
+            evento.preventDefault()
+            const data: IColaborador = {
+                nome: nome,
+                cpf: cpf
+            }
+            mutate(data)
+            if(isSuccess){   
+                toast.success("Colaborador cadastrado com sucesso")
+                setCpf("")
+                setNome("")
+                //navigate(0)
+            }
         }
     }
     function handleDeletaModal(colaborador: IColaboradores){
         setDeleteModal(true)
         setSelectedId(colaborador)
-        console.log(selectedId)
     }
     function handleCloseDeleteModal(){
         setDeleteModal(false)
-        navigate(0)
+        //navigate(0)
     }
 
     return(
@@ -50,6 +53,7 @@ function Colaboradores(){
             <div className="page">
                 <Menu/>
                 <div className="conteiner">
+                    <ToastContainer/>
                     <div className="list-colaboradores">
                         <div className="title"><MdFiberNew/><h2>COLABORADORES</h2></div>
                         {!data || data.length ===0 ? (

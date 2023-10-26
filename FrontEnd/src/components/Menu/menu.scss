@@ -62,6 +62,8 @@
 }
 
 .lista-projetos{
+    overflow-x: hidden;
+    overflow-y: scroll;
     height: 80%;
     background-color: white;
     display: flex;

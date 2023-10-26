@@ -1,13 +1,16 @@
 import { IModal } from "../../../Interfaces/IModal";
 import { DeleteProjeto } from "../../../Services/GetProjetos";
 import '../modal.scss'
+import { ToastContainer, toast} from 'react-toastify'
+
 
 function DeleteProjetoModal({isOpen, close}:IModal){
     const { mutate, isSuccess } = DeleteProjeto()
-    function deleteProjeto(){
+    function deleteProjeto(evento: any){
+        evento.preventDefault()
         mutate()
         if(isSuccess){
-            alert('Projeto excluido com sucesso')
+            toast.success("Projeto excluido com sucesso!")
             close()
         }
     }
@@ -15,6 +18,7 @@ function DeleteProjetoModal({isOpen, close}:IModal){
     if(isOpen){
         return(
             <div className="backgroundStyle">
+                <ToastContainer/>
                 <div className="deleteConteiner">
                     <p>Tem certeza que deseja deletar este projeto e todas as suas tarefas?</p>
                     <div className="buttons-delete">

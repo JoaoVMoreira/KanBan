@@ -4,6 +4,8 @@ import { PostTarefa } from "../../../Services/GetTarefas";
 import { useState } from "react";
 import { GetColaboradores } from "../../../Services/GetColaboradores";
 import { IColaboradores } from "../../../Interfaces/IColaborador";
+import {ToastContainer, toast} from 'react-toastify'
+
 
 export function AddModalTarefa({isOpen, close, fila}:IModalFila){
 
@@ -15,21 +17,30 @@ export function AddModalTarefa({isOpen, close, fila}:IModalFila){
     const[urgencia, setUrgencia] = useState<string>('')
     const[descricao, setDescricao] = useState<string>('')
 
-    function handleAddTarefa(){
-        const data = {
-            nomeTarefa: nomeTarefa, 
-            colaboradorId: parseInt(colaboradorId),
-            dataLimite: new Date(dataLimite),
-            urgencia: urgencia,
-            descricao: descricao,
-            filaAtual: fila.id
+    function handleAddTarefa(evento: any){
+        evento.preventDefault()
+
+        if(nomeTarefa == '' || colaboradorId == "" || dataLimite == "" || urgencia == ""){
+            toast.warning("Favor preencher todos os campos obrigatorios!")
+        }else{
+            const data = {
+                nomeTarefa: nomeTarefa, 
+                colaboradorId: parseInt(colaboradorId),
+                dataLimite: new Date(dataLimite),
+                urgencia: urgencia,
+                descricao: descricao,
+                filaAtual: fila.id
+            }
+            try{
+                mutate(data)
+                toast.success("Tarefa cadastrada com sucesso!")
+                close()
+            }catch{
+                toast.error("Erro ao cadastrar tarefa: " + error)
+                close()
+            }
         }
-        try{
-            mutate(data)
-            alert("Tarefa cadastrada com sucesso!")
-        }catch{
-            alert("Ocorreu um erro: " + error)
-        }
+        
     }
 
     if(isOpen){

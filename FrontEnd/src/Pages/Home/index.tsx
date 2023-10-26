@@ -10,11 +10,12 @@ import { AddFilaModal } from "../../components/Modal/AddFilaModal";
 import { BsFillTrashFill } from "react-icons/bs";
 import DeleteFilaModal from "../../components/Modal/DeleteFilaModal";
 import { AddModalTarefa } from "../../components/Modal/AddTarefaModal";
+import {ToastContainer} from 'react-toastify'
 
 
 function Home(){
 
-    const { data } = GetFila()
+    const { data, refetch } = GetFila()
     
     const[DeleteModal, setDeleteModal]= useState<boolean>(false)
     const[deleteFila, setDeleteFila]= useState<boolean>(false)
@@ -32,7 +33,7 @@ function Home(){
         setAddModal(false)
         setDeleteFila(false)
         setAddTarefa(false)
-        navigate(0)
+        refetch()
     }
     function handleAddModal(){
         setAddModal(true);
@@ -50,6 +51,7 @@ function Home(){
         <>
             <div className="page">
                 <Menu/>
+                <ToastContainer/>
                 <div className="conteiner-filas">
                     {!data || data.length === 0 ? (
                         <div className="no-content">

@@ -9,8 +9,11 @@
 }
 
 .list-colaboradores{
+    overflow-y: scroll;
+    padding: 5px;
     margin-right: 15%;
     margin-top: 8%;
+    overflow-x: hidden;
     .colaborador{
         background-color: white;
         height: 110px;

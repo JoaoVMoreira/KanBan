@@ -16,7 +16,7 @@ function Menu(){
 
     function handleCloseModal(){
         setIsOpenModal(false)
-        navigate(0)
+        //navigate(0)
     }
 
     function handleNavigateMenu(projetoId:number){

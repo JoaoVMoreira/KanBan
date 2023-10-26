@@ -4,23 +4,26 @@ import '../modal.scss'
 import { MdFiberNew } from "react-icons/md";
 import {useState} from 'react'
 import { IProjeto } from "../../../Interfaces/IProjetos";
+import {ToastContainer, toast} from  'react-toastify'
 
 function AddProjetoModal({isOpen, close}:IModal){
 
     const { mutate,isSuccess } = PostProjetos();
     const [nome, setNome] = useState<string>('');
 
-    function handleCadastraProjeto(){
+    function handleCadastraProjeto(evento: any){
+        evento.preventDefault()
         if(nome == ''){
-            alert('Favor preencher todos os campos')
-        }
-        const data:IProjeto = {
-            nomeProjeto: nome
-        }
-        mutate(data)
-        if(isSuccess){
-            alert('Cadastro realizado com sucesso')
-            close()
+            toast.warning("Favor preencher o nome do projeto!")
+        }else{
+            const data:IProjeto = {
+                nomeProjeto: nome
+            }
+            mutate(data)
+            if(isSuccess){
+                toast.success("Cadastro realizado com sucesso")
+                close()
+            }
         }
     }
 
@@ -28,6 +31,7 @@ function AddProjetoModal({isOpen, close}:IModal){
         return(
             <>
                 <div className="backgroundStyle">
+                    <ToastContainer/>
                     <div className="contentStyle">
                         <div className="title-modal">
                             <span>

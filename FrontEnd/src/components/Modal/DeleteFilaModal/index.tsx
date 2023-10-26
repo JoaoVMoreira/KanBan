@@ -1,3 +1,4 @@
+import { ToastContainer, toast } from "react-toastify";
 import { IModalFila } from "../../../Interfaces/IModal";
 import { DeleteFila } from "../../../Services/GetFilas";
 import '../modal.scss'
@@ -5,16 +6,18 @@ import '../modal.scss'
 function DeleteFilaModal({isOpen, close, fila}:IModalFila){
 
     const { mutate, isSuccess } = DeleteFila()
-    function deleteFila(){
+    function deleteFila(evento: any){
+        evento.preventDefault()
         mutate(fila.id)
         if(isSuccess){
-            alert("Fila excluida com sucesso")
+            toast.success("Fila deletada com sucesso")
             close()
         }
     }
     if(isOpen){
         return(
             <div className="backgroundStyle">
+                <ToastContainer/>
                 <div className="deleteConteiner">
                     <p>Tem certeza que deseja deletar o colaborador <span>{}</span>?</p>
                     <div className="buttons-delete">

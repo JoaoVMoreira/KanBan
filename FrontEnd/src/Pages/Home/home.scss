@@ -4,6 +4,8 @@
     margin-top: 8px;
     width: 79%;
     display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
     flex-direction: row;
     .fila{
         margin-top: 3%;

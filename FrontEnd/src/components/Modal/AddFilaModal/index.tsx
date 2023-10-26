@@ -3,32 +3,37 @@ import { MdFiberNew } from "react-icons/md";
 import { useState } from 'react'
 import "../modal.scss"
 import { PostFila } from "../../../Services/GetFilas";
+import {ToastContainer, toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 export function AddFilaModal({isOpen, close}: IModal){
 
     const[nomeFila, setNomeFila] = useState<string>('')
-    const[projetoId, setProjetoId] = useState<string | null>(localStorage.getItem("projetoId"))
     const { mutate, isSuccess } = PostFila()
 
-    function handleAddFila(){
+    const handleAddFila = (elemento:any)=>{
+        elemento.preventDefault();
         if(nomeFila == ''){
-            alert("Insira o nome da fila!")
+            toast.warning("Favor preencher o campo Nome da fila.")
         }
+        const projetoid = localStorage.getItem("projetoId")
         const data= {
             nomeFila: nomeFila,
-            projetoId: projetoId
+            projetoId: projetoid
         }
         mutate(data)
         if(isSuccess){
-            alert("Fila cadastrada com sucesso")
+            toast.success("Fila cadastrada com sucesso!")
             close()
         }
     }
+
 
     if(isOpen){
         return(
             <div>
                 <div className="backgroundStyle">
+                    <ToastContainer/>
                     <div className="contentStyle">
                         <div className="title-modal">
                             <span>

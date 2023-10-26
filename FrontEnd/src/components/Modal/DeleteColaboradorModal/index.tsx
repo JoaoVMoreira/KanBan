@@ -1,19 +1,22 @@
 import { IModalColaborador } from "../../../Interfaces/IModal";
 import { DeleteColaboradores } from "../../../Services/GetColaboradores";
 import '../modal.scss'
+import {ToastContainer, toast} from 'react-toastify'
 
 function DeleteColaboradorModal({isOpen, close, colaborador}:IModalColaborador){
     const { mutate, isSuccess } = DeleteColaboradores();
-    function handleDeleteColaborador(){
+    function handleDeleteColaborador(evento: any){
+        evento.preventDefault()
         mutate(colaborador.id)
         if(isSuccess){
-            alert('Colaborador excluido com sucesso!')
+            toast.success("Colaborador excluido com sucesso!")
             close()
         }
     }
     if(isOpen){
         return(
             <div className="backgroundStyle">
+                <ToastContainer/>
                 <div className="deleteConteiner">
                     <p>Tem certeza que deseja deletar o colaborador <span>{colaborador.nome}</span>?</p>
                     <div className="buttons-delete">
