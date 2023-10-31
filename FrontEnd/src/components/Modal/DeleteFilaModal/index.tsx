@@ -1,11 +1,11 @@
 import { ToastContainer, toast } from "react-toastify";
 import { IModalFila } from "../../../Interfaces/IModal";
-import { DeleteFila } from "../../../Services/GetFilas";
 import '../modal.scss'
+import { useFilaDelete } from "../../../Services/Filas/useFilasDelete";
 
 function DeleteFilaModal({isOpen, close, fila}:IModalFila){
 
-    const { mutate, isSuccess } = DeleteFila()
+    const { mutate, isSuccess } = useFilaDelete()
     function deleteFila(evento: any){
         evento.preventDefault()
         mutate(fila.id)

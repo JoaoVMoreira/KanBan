@@ -1,11 +1,11 @@
 import { IModal } from "../../../Interfaces/IModal";
-import { DeleteProjeto } from "../../../Services/GetProjetos";
+import { useProjetosDelete } from "../../../Services/Projetos/useProjetosDelete";
 import '../modal.scss'
 import { ToastContainer, toast} from 'react-toastify'
 
 
 function DeleteProjetoModal({isOpen, close}:IModal){
-    const { mutate, isSuccess } = DeleteProjeto()
+    const { mutate, isSuccess } = useProjetosDelete()
     function deleteProjeto(evento: any){
         evento.preventDefault()
         mutate()

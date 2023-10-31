@@ -2,28 +2,25 @@ import Menu from "../../components/Menu";
 import "./home.scss"
 import {useState} from 'react'
 import { MdFiberNew } from "react-icons/md";
-import { GetFila } from "../../Services/GetFilas";
 import { IFilas } from "../../Interfaces/IFila";
 import DeleteProjetoModal from "../../components/Modal/DeleteProjetoModal";
-import { useNavigate } from "react-router-dom";
 import { AddFilaModal } from "../../components/Modal/AddFilaModal";
 import { BsFillTrashFill } from "react-icons/bs";
 import DeleteFilaModal from "../../components/Modal/DeleteFilaModal";
 import { AddModalTarefa } from "../../components/Modal/AddTarefaModal";
 import {ToastContainer} from 'react-toastify'
+import { useFilaData } from "../../Services/Filas/useFilasData";
 
 
 function Home(){
 
-    const { data, refetch } = GetFila()
+    const { data } = useFilaData()
     
     const[DeleteModal, setDeleteModal]= useState<boolean>(false)
     const[deleteFila, setDeleteFila]= useState<boolean>(false)
     const[addTarefa, setAddTarefa] = useState<boolean>(false)
     const[selectedFila, setSelectedFila]= useState<IFilas>({id: 0,nomeFila: '', projetoId:0})
     const[addModal, setAddModal] = useState<boolean>(false)
-    
-    const navigate = useNavigate();
 
     function handleDeleteProjeto(){
         setDeleteModal(true)
@@ -33,7 +30,6 @@ function Home(){
         setAddModal(false)
         setDeleteFila(false)
         setAddTarefa(false)
-        refetch()
     }
     function handleAddModal(){
         setAddModal(true);
@@ -52,7 +48,7 @@ function Home(){
             <div className="page">
                 <Menu/>
                 <ToastContainer/>
-                <div className="conteiner-filas">
+                <section className="conteiner-filas">
                     {!data || data.length === 0 ? (
                         <div className="no-content">
                             <p>Sem filas cadastradas</p>
@@ -64,13 +60,13 @@ function Home(){
                         return(
                             <>
                                 <div className="fila" key={item.id}>
-                                    <div className="titulo">
+                                    <title className="titulo">
                                         <MdFiberNew/>
                                         <h2>{item.nomeFila}</h2>
                                         <button onClick={()=>{handleDeleteFila(item)}}>
                                             <BsFillTrashFill/>
                                         </button>
-                                    </div>
+                                    </title>
                                         <div className="tarefa">
                                             <h3>NOME TAREFA</h3>
                                             <p>nome funcionario</p>
@@ -91,11 +87,11 @@ function Home(){
                         </>
                     )}
                     
-                    <div className="new-fila">
+                    <section className="new-fila">
                         <button onClick={handleAddModal}>+</button>
                         <button onClick={handleDeleteProjeto}><BsFillTrashFill/></button>
-                    </div>
-                </div>
+                    </section>
+                </section>
             </div>
             <AddModalTarefa isOpen={addTarefa} close={handleCloseModal} fila={selectedFila}/>
             <DeleteProjetoModal isOpen={DeleteModal} close={handleCloseModal}/>

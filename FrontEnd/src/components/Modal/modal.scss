@@ -1,3 +1,5 @@
+@import '../../index.scss';
+
 .backgroundStyle{
     position: fixed;
     top: 0;
@@ -6,36 +8,18 @@
     bottom: 0;
     background-color: rgb(0, 0, 0, 0.7);
     z-index: 10000;
-
     .contentStyle{
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-        background-color: #EDEDED;
-        border-radius: 20px;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        width: 60%;
-        height: 40%;
-        background-color: #A8A8A8;
-
+        @include felxCenter(column, center, center);
+        @include widheig(40%, 60%); 
+        @include contentModal(20px, #A8A8A8);
         .title-modal{
-            display: flex;
-            flex-direction: row;
+            @include felxCenter(row, baseline, baseline);
             color: white;
             width: 95%;
             height: 35%;
-            justify-content: baseline;
-            align-items: baseline;
             text-align: center;
             span{
-                display: flex;
-                align-items: center;
+                @include felxCenter(row, center, baseline);
                 float: left;
             }
             svg{
@@ -47,6 +31,8 @@
                 font-size: 26px;
             }
             button{
+                @include felxCenter(row, center, center);
+                @include widheig(30px, 30px);
                 position: absolute;
                 left: 40%;
                 top: 1%;
@@ -57,32 +43,22 @@
                 border-radius: 10px;
                 color: #A8A8A8;
                 font-weight: 700;
-                display: flex;
-                justify-content: center;
-                align-items: center;
                 font-size: 20px;
-            }
-            button:hover{
-                transform: scale(1.1);
-                transition: 0.2s;
-                cursor: pointer;
+                &:hover{
+                    transform: scale(1.1);
+                    transition: 0.2s;
+                    cursor: pointer;
+                }
             }
         }
-
         form{
-            width: 80%;
-            height: 40%;
-            
+            @include widheig(40%, 80%);
         }
         label{
+            @include felxCenter(column, baseline, baseline);
             color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: baseline;
-            align-items: baseline;
             input{
-                width: 100%;
-                height: 45px;
+                @include widheig(45px, 100%); 
                 border: none;
                 border-radius: 12px;
             }
@@ -91,44 +67,29 @@
             }
         }
         button{
+            @include widheig(40px, 40px);
+            @include felxCenter(row, center, center);
             margin-left: 50%;
             margin-top: 4%;
             background-color: #EDEDED;
             border: 1px solid red;
             border: none;
-            width: 40px;
-            height: 40px;
             border-radius: 10px;
             color: #A8A8A8;
             font-weight: 700;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             font-size: 40px;
-        }
-        button:hover{
-            transform: scale(1.1);
-            transition: 0.2s;
-            cursor: pointer;
+            &:hover{
+                transform: scale(1.1);
+                transition: 0.2s;
+                cursor: pointer;
+            }
         }
     }
 
     .deleteConteiner{
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-        background-color: #EDEDED;
-        border-radius: 10px;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        width: 40%;
-        height: 40%;
-        background-color: white;
+        @include felxCenter(column, center, center);
+        @include widheig(40%, 40%); 
+        @include contentModal(10px, white);
         p{
             font-size: 28px;
             font-weight: 500;
@@ -141,50 +102,33 @@
             width: 100%;
             margin-top: 3%;
             button{
-                width: 30%;
-                height: 50px;
+                @include widheig(50px, 30%);
                 border: none;
                 background-color: green;
                 color: white;
                 border-radius: 5px;
                 font-size: 18px;
                 font-weight: 700;
-            }
-            button:hover{
-                transform: scale(1.1);
-                transition: 0.2s;
-
-            }
-            button:last-child{
-                background-color: red;
-                margin-left: 5%;
+                &:hover{
+                    transform: scale(1.1);
+                    transition: 0.2s;
+                }
+                &:last-child{
+                    background-color: red;
+                    margin-left: 5%;
+                }
             }
         }
     }
 
     .tarefa-conteiner{
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-        background-color: #EDEDED;
-        border-radius: 20px;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        width: 60%;
-        height: 65%;
-        background-color: #6E83E0;
+        @include contentModal(20px, #6E83E0);
+        @include widheig(65%, 60%);
+        @include felxCenter(column, center, center);
         .title-tarefa{
-            display: flex;
-            flex-direction: row;
+            @include felxCenter(row, center, baseline);
             color: white;
             font-weight: 400;
-            justify-content: baseline;
-            align-items: center;
             font-size: 22px;
             width: 100%;
             margin-bottom: 50px;
@@ -194,19 +138,18 @@
                 margin-right: 15px;
             }
             button{
+                @include widheig(35px, 35px);
                 position: absolute;
                 left: 95%;
                 border: none;
                 background-color: white;
                 color: #6E83E0;
-                width: 35px;
-                height: 35px;
-            }
-            button:hover{
-                transition: 0.2s;
-                background-color: #6E83E0;
-                border: 2px solid white;
-                color: white;
+                &:hover{
+                    transition: 0.2s;
+                    background-color: #6E83E0;
+                    border: 2px solid white;
+                    color: white;
+                }
             }
         }
         form{
@@ -215,8 +158,7 @@
             label{
                 color: white;
                 input, select, textarea{
-                    width: 100%;
-                    height: 40px;
+                    @include widheig(40px, 100%);
                     border-radius: 15px;
                     border: none;
                     margin-bottom: 15px;
@@ -231,41 +173,35 @@
                 }
             }
             .double-input{
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
+                @include felxCenter(row, center, center);
                 label{
                     width: 49%;
                     margin-left: 2%;
-                }
-                label:first-child{
-                    margin-left: 0;
+                    &:first-child{
+                        margin-left: 0;
+                    }
                 }
                 input{
                     width: 100%;
                 }
             }
             button{
+                @include felxCenter(row, center, center);
+                @include widheig(35px, 35px);
                 border: none;
                 background-color: white;
                 color: #6E83E0;
-                width: 35px;
-                height: 35px;
                 font-size: 48px;
                 text-align: center;
-                display: flex;
-                justify-content: center;
-                align-items: center;
                 position: absolute;
                 left: 48%;
                 border-radius: 10%;
-            }
-            button:hover{
-                transition: 0.2s;
-                background-color: #6E83E0;
-                border: 2px solid white;
-                color: white;
+                &:hover{
+                    transition: 0.2s;
+                    background-color: #6E83E0;
+                    border: 2px solid white;
+                    color: white;
+                }
             }
         }
     }

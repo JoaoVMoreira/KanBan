@@ -2,15 +2,15 @@ import { MdFiberNew } from "react-icons/md";
 import { IModalFila } from "../../../Interfaces/IModal";
 import { PostTarefa } from "../../../Services/GetTarefas";
 import { useState } from "react";
-import { GetColaboradores } from "../../../Services/GetColaboradores";
 import { IColaboradores } from "../../../Interfaces/IColaborador";
 import {ToastContainer, toast} from 'react-toastify'
+import { useColaboradoresData } from "../../../Services/Colaboradores/useColaboradoresData";
 
 
 export function AddModalTarefa({isOpen, close, fila}:IModalFila){
 
     const { mutate, error } = PostTarefa()
-    const {data} = GetColaboradores()
+    const {data} = useColaboradoresData()
     const[nomeTarefa, setNomeTarefa] = useState<string>('')
     const[colaboradorId, setColaboradorId] = useState<string>('')
     const[dataLimite, setDataLimite] = useState<string>('')

@@ -1,10 +1,10 @@
 import { IModalColaborador } from "../../../Interfaces/IModal";
-import { DeleteColaboradores } from "../../../Services/GetColaboradores";
+import { useColaboradoresDelete } from "../../../Services/Colaboradores/useColaboradoresDelete";
 import '../modal.scss'
 import {ToastContainer, toast} from 'react-toastify'
 
 function DeleteColaboradorModal({isOpen, close, colaborador}:IModalColaborador){
-    const { mutate, isSuccess } = DeleteColaboradores();
+    const { mutate, isSuccess } = useColaboradoresDelete();
     function handleDeleteColaborador(evento: any){
         evento.preventDefault()
         mutate(colaborador.id)

@@ -1,34 +1,29 @@
+@import "../../index.scss";
+
+
+
 .conteiner-filas{
+    @include felxCenter(row, baseline, baseline);
+    @include widheig(99.1vh, 79%); 
     margin-left: 5%;
-    height: 99.1vh;
     margin-top: 8px;
-    width: 79%;
-    display: flex;
     overflow-x: scroll;
     overflow-y: hidden;
-    flex-direction: row;
     .fila{
+        @include widheig(fit-content, 280px);
+        @include felxCenter(column, center, baseline);
         margin-top: 3%;
-        width: 280px;
-        display: flex;
-        height: fit-content;
-        flex-direction: column;
-        align-items: center;
         background-color: #6E83E0;
         border-radius: 15px;
         position: relative;
         margin-left: 10px;
         .titulo{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            height: 50px;
-            width: 100%;
+            @include felxCenter(row, center, baseline);
+            @include widheig(50px, 100%);
             background-color: #6E83E0;
             color: white;
             border-top-right-radius: 10px;
             border-top-left-radius: 10px;
-            
             svg{
                 font-size: 32px;
                 margin-left: 3%;
@@ -91,56 +86,49 @@
             border-end-start-radius: 15px;
         }
         button{
+            @include widheig(25px, 25px);
+            @include felxCenter(column, center, center);
             position: absolute;
             bottom: -25%;
-            width: 25px;
-            height: 25px;
             border: none;
             border-radius: 6px;
             background-color: #6E83E0;
             color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             font-size: 30px;
             font-weight: 700;
             cursor: pointer;
-        }
-        button:hover{
-            transition: 0.2s;
-            background-color: #3651a1;
+            &:hover{
+                transition: 0.2s;
+                background-color: #3651a1;
+            }
         }
     }
     .new-fila{
         margin-top: 3%;
         margin-left: 5%;
         button{
-            width: 35px;
-            height: 35px;
+            @include felxCenter(row, center, center);
+            @include widheig(35px, 35px); 
             border: none;
             border-radius: 6px;
             background-color: #6E83E0;
             color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             font-size: 38px;
             font-weight: 700;
             margin-bottom: 10px;
             cursor: pointer;
-        }
-        button:hover{
-            transition: 0.2s;
-            background-color: #3651a1;
-        }
-
-        button:last-child{
-            background-color: red;
-            font-size: 26px;
-        }
-        button:last-child:hover{
-            background-color: rgb(187, 4, 4);
-            transition: 0.2s;
+            &:hover{
+                transition: 0.2s;
+                background-color: #3651a1;
+            }
+            &:last-child{
+                background-color: red;
+                font-size: 26px;
+            }
+            &:last-child:hover{
+                background-color: rgb(187, 4, 4);
+                transition: 0.2s;
+            }
         }
     }
 }

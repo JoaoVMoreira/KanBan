@@ -1,24 +1,23 @@
 import { IColaborador, IColaboradores } from "../../Interfaces/IColaborador";
-import { GetColaboradores, PostColaboradores } from "../../Services/GetColaboradores";
 import Menu from "../../components/Menu";
 import "./colaborador.scss"
 import { MdFiberNew } from "react-icons/md";
 import {useState} from 'react'
-import { useNavigate } from "react-router-dom";
 import DeleteColaboradorModal from "../../components/Modal/DeleteColaboradorModal";
 import InputMask from 'react-input-mask'
 import { ToastContainer, toast} from 'react-toastify'
+import { useColaboradoresData } from "../../Services/Colaboradores/useColaboradoresData";
+import { useColaboradoresMutation } from "../../Services/Colaboradores/useColaboradoresMutation";
 
 function Colaboradores(){
 
-    const { data } = GetColaboradores();
+    const { data } = useColaboradoresData();
     const [nome, setNome] = useState<string>('');
     const [cpf, setCpf] = useState<string>('');
-    const navigate = useNavigate();
     const [deleteModal, setDeleteModal] = useState(false);
     const [selectedId, setSelectedId] = useState<IColaboradores>({id: 0,nome: '', cpf: ''});
 
-    const { mutate, isSuccess } = PostColaboradores();
+    const { mutate, isSuccess } = useColaboradoresMutation();
 
     function handleCadastraColaborador(evento: any){
         if(nome == '' || cpf == ''){
@@ -35,7 +34,6 @@ function Colaboradores(){
                 toast.success("Colaborador cadastrado com sucesso")
                 setCpf("")
                 setNome("")
-                //navigate(0)
             }
         }
     }
@@ -45,7 +43,6 @@ function Colaboradores(){
     }
     function handleCloseDeleteModal(){
         setDeleteModal(false)
-        //navigate(0)
     }
 
     return(
@@ -54,8 +51,8 @@ function Colaboradores(){
                 <Menu/>
                 <div className="conteiner">
                     <ToastContainer/>
-                    <div className="list-colaboradores">
-                        <div className="title"><MdFiberNew/><h2>COLABORADORES</h2></div>
+                    <section className="list-colaboradores">
+                        <title className="title"><MdFiberNew/><h2>COLABORADORES</h2></title>
                         {!data || data.length ===0 ? (
                             <div className="no-content">
                                 <p>Sem colaboradores cadastrados</p>
@@ -77,9 +74,9 @@ function Colaboradores(){
                             </>
                         )}
                         
-                    </div>
-                    <div className="add-colaborador">
-                        <div className="title"><MdFiberNew/><h2>COLABORADORES</h2></div>
+                    </section>
+                    <section className="add-colaborador">
+                        <title className="title"><MdFiberNew/><h2>COLABORADORES</h2></title>
                         <form className="colab-form" onSubmit={handleCadastraColaborador}>
                             <label htmlFor="input">
                                 <p>Nome</p>
@@ -91,7 +88,7 @@ function Colaboradores(){
                             </label>
                             <button type="submit">+</button>
                         </form>
-                    </div>
+                    </section>
                 </div>
             </div>
             <DeleteColaboradorModal isOpen={deleteModal} close={handleCloseDeleteModal} colaborador={selectedId}/>

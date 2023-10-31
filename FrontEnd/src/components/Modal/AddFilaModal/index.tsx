@@ -2,14 +2,14 @@ import { IModal } from "../../../Interfaces/IModal";
 import { MdFiberNew } from "react-icons/md";
 import { useState } from 'react'
 import "../modal.scss"
-import { PostFila } from "../../../Services/GetFilas";
 import {ToastContainer, toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import { useFilaMutation } from "../../../Services/Filas/useFilasMutation";
 
 export function AddFilaModal({isOpen, close}: IModal){
 
     const[nomeFila, setNomeFila] = useState<string>('')
-    const { mutate, isSuccess } = PostFila()
+    const { mutate, isSuccess } = useFilaMutation()
 
     const handleAddFila = (elemento:any)=>{
         elemento.preventDefault();

@@ -1,12 +1,12 @@
 import { IProjetos } from "../../Interfaces/IProjetos";
-import { getProjetos } from "../../Services/GetProjetos";
 import { useState } from 'react'
 import "./menu.scss"
 import AddProjetoModal from "../Modal/AddProjetoModal";
 import { useNavigate } from "react-router-dom";
+import { useProjetosData } from "../../Services/Projetos/useProjetosData";
 
 function Menu(){
-    const { data } = getProjetos();
+    const { data } = useProjetosData();
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false)
     const navigate = useNavigate();
 
@@ -16,13 +16,11 @@ function Menu(){
 
     function handleCloseModal(){
         setIsOpenModal(false)
-        //navigate(0)
     }
 
     function handleNavigateMenu(projetoId:number){
         navigate('/')
         localStorage.setItem("projetoId", JSON.stringify(projetoId))
-        navigate(0)
     }
 
     return(

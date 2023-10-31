@@ -1,17 +1,17 @@
 import { IModal } from "../../../Interfaces/IModal";
-import { PostProjetos } from "../../../Services/GetProjetos";
 import '../modal.scss'
 import { MdFiberNew } from "react-icons/md";
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import { IProjeto } from "../../../Interfaces/IProjetos";
 import {ToastContainer, toast} from  'react-toastify'
+import { useProjetosMutate } from "../../../Services/Projetos/useProjetosMutate";
 
 function AddProjetoModal({isOpen, close}:IModal){
 
-    const { mutate,isSuccess } = PostProjetos();
+    const { mutate, isSuccess } = useProjetosMutate();
     const [nome, setNome] = useState<string>('');
 
-    function handleCadastraProjeto(evento: any){
+    function handleCadastraProjeto(evento:any){
         evento.preventDefault()
         if(nome == ''){
             toast.warning("Favor preencher o nome do projeto!")
@@ -20,10 +20,10 @@ function AddProjetoModal({isOpen, close}:IModal){
                 nomeProjeto: nome
             }
             mutate(data)
-            if(isSuccess){
-                toast.success("Cadastro realizado com sucesso")
-                close()
-            }
+        }
+        if(isSuccess){
+            toast.success("Projeto adicionado com sucesso!")
+            close()
         }
     }
 
