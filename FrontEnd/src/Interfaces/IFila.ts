@@ -11,5 +11,6 @@ export interface IFilaData{
 }
 
 export interface IFilaContent{
-    fila: IFilaData
+    fila: IFilaData,
+    close?: any
 }

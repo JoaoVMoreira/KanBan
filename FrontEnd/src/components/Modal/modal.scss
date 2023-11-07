@@ -115,4 +115,15 @@
     .content-tarefa-finish{
         @include showTarefaContent(#45C8C7);
     }
+
+
+    .tarefa-conteiner{
+        @include tarefaAddModal(#6E83E0);
+    }
+    .tarefa-conteiner-doing{
+        @include tarefaAddModal(#F17B27);
+    }
+    .tarefa-conteiner-finish{
+        @include tarefaAddModal(#45C8C7);
+    }
 }
