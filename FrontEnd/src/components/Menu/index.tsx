@@ -19,8 +19,9 @@ function Menu(){
     }
 
     function handleNavigateMenu(projetoId:number){
-        navigate('/')
         localStorage.setItem("projetoId", JSON.stringify(projetoId))
+        navigate("/")
+        navigate(0)
     }
 
     return(

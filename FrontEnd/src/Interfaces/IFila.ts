@@ -4,8 +4,12 @@ export interface IFila{
     projetoId: number | null | string
 }
 
-export interface IFilas{
+export interface IFilaData{
     id: number, 
     nomeFila: string,
     projetoId: number | null | string
+}
+
+export interface IFilaContent{
+    fila: IFilaData
 }

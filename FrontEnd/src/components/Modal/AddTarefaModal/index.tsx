@@ -1,10 +1,12 @@
-import { MdFiberNew } from "react-icons/md";
+import { MdFiberNew, MdOutlineWorkHistory } from "react-icons/md";
 import { IModalFila } from "../../../Interfaces/IModal";
 import { useState } from "react";
 import { IColaboradores } from "../../../Interfaces/IColaborador";
 import {toast} from 'react-toastify'
 import { useColaboradoresData } from "../../../Services/Colaboradores/useColaboradoresData";
 import { useTarefasMutation } from "../../../Services/Tarefas/useTarefasMutation";
+import './AddTarefaModal.scss'
+import { BsFillPatchCheckFill } from "react-icons/bs";
 
 
 export function AddModalTarefa({isOpen, close, fila}:IModalFila){
@@ -34,6 +36,10 @@ export function AddModalTarefa({isOpen, close, fila}:IModalFila){
             try{
                 mutate(data)
                 toast.success("Tarefa cadastrada com sucesso!")
+                setDataLimite('')
+                setDescricao('')
+                setNomeTarefa('')
+                setUrgencia('')
                 close()
             }catch{
                 toast.error("Erro ao cadastrar tarefa: " + error)
@@ -48,9 +54,15 @@ export function AddModalTarefa({isOpen, close, fila}:IModalFila){
             <div className="backgroundStyle">
                 <div className="tarefa-conteiner">
                     <div className="title-tarefa">
-                        <MdFiberNew/>
+                        {fila.nomeFila == "Doing" ? (
+                            <MdOutlineWorkHistory/>
+                        ): fila.nomeFila == "Finish" ? (
+                                <BsFillPatchCheckFill/>
+                        ) : (
+                            <MdFiberNew/>
+                        )}
                         <h1>{fila.nomeFila}</h1>
-                        <button onClick={close}>close</button>
+                        <button onClick={close}>x</button>
                     </div>
                     <form onSubmit={handleAddTarefa}>
                         <label htmlFor="input">

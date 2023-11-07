@@ -1,5 +1,4 @@
 @import "../../index.scss";
-
 .menu{
     width: 280px;
     margin-top: 8px;
@@ -7,10 +6,8 @@
     height: 98vh;
 }
 .projeto-menu{
+    @include felxCenter(row, center, baseline);
     height: 9%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     background-color: white;
     margin-bottom: 5%;
     box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.25);
@@ -22,68 +19,35 @@
         background-color: white;
     }
     button{
-        width: 35px;
-        height: 35px;
-        border: none;
-        border-radius: 6px;
-        background-color: #3F61C7;
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 38px;
-        font-weight: 700;
-        cursor: pointer;
+        @include btnNoBorder(35px, 35px, #3F61C7, #3651a1);
     }
 
-    button:hover{
-        background-color: #3651a1;
-    }
 }
-
 .btn-colaborador{
+    @include btnNoBorder(100%, 80px, #3F61C7, #3651a1);
     height: 80px;
     width: 100%;
-    border-radius: 5px;
-    border: none;
-    background-color: #3F61C7;
     font-size: 20px;
-    font-weight: 700;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
     margin-bottom: 5%;
     box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.25);
 }
-
-.btn-colaborador:hover{
-    background-color: #3651a1;
-    transition: 0.2s;
-    cursor: pointer;
-}
-
 .lista-projetos{
     overflow-x: hidden;
     overflow-y: scroll;
     height: 80%;
     background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: baseline;
-    align-items: center;
+    @include felxCenter(column, center, baseline);
     box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.25);
     button{
+        @include btnNoBorder(100%, 65px, white, #f2f2f2);
         width: 100%;
         height: 65px;
-        background-color: white;
+        color: black;
+        border-radius: 0;
         font-size: 20px;
-        font-weight: 700;
-        border: none;
-        cursor: pointer;
-    }
-    button:hover{
-        border-right: 5px solid #3F61C7;
-        background-color: #f2f2f2;
+        &:hover{
+            border-right: 5px solid #3F61C7;
+            transition: none;
+        }
     }
 }

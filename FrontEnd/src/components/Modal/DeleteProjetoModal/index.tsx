@@ -1,7 +1,7 @@
 import { IModal } from "../../../Interfaces/IModal";
 import { useProjetosDelete } from "../../../Services/Projetos/useProjetosDelete";
 import '../modal.scss'
-import { ToastContainer, toast} from 'react-toastify'
+import { ToastContainer, toast} from 'react-toastify';
 
 
 function DeleteProjetoModal({isOpen, close}:IModal){

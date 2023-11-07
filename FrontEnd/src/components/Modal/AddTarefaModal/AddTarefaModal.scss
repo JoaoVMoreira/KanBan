@@ -1,0 +1,5 @@
+@import '../../../index.scss';
+
+.tarefa-conteiner{
+    @include tarefaAddModal(#6E83E0);
+}

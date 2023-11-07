@@ -10,99 +10,13 @@
     overflow-x: scroll;
     overflow-y: hidden;
     .fila{
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-        @include widheig(fit-content, 280px);
-        @include felxCenter(column, center, baseline);
-        margin-top: 3%;
-        background-color: #6E83E0;
-        border-radius: 15px;
-        position: relative;
-        margin-left: 10px;
-        .titulo{
-            @include felxCenter(row, center, baseline);
-            @include widheig(50px, 100%);
-            background-color: #6E83E0;
-            color: white;
-            border-top-right-radius: 10px;
-            border-top-left-radius: 10px;
-            svg{
-                font-size: 32px;
-                margin-left: 3%;
-                margin-right: 5%;
-            }
-            h2{
-                font-weight: 500;
-                font-size: 20px;
-            }
-
-            button{
-                background-color: transparent;
-                position: absolute;
-                bottom: 78%;
-                left: 85%;
-            }
-            button:hover{
-                background-color: transparent;
-                transform: scale(1.1);
-            }
-        }
-        .tarefa{
-            width: 100%;
-            height: 120px;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            
-            h3{
-                font-size: 26px;
-                margin-left: 10%;
-                font-weight: 700;
-            }
-            p{
-                margin-left: 10%;
-                font-size: 14px;
-            }
-            span{
-                margin-left: 1.8%;
-                display: flex;
-                flex-direction: row;
-                width: 100%;
-                p{
-                    font-size: 20px;
-                    margin-top: 8%;
-                }
-                p:last-child{
-                    color: red;
-                    font-weight: 700;
-                    font-size: 22px;
-                    margin-left: 15%;
-                }
-            }
-        }
-        .tarefa:hover{
-            transition: 0.1s;
-            background-color: #778CEC;
-            border-end-end-radius: 15px;
-            border-end-start-radius: 15px;
-        }
-        button{
-            @include widheig(25px, 25px);
-            @include felxCenter(column, center, center);
-            position: absolute;
-            bottom: -25%;
-            border: none;
-            border-radius: 6px;
-            background-color: #6E83E0;
-            color: white;
-            font-size: 30px;
-            font-weight: 700;
-            cursor: pointer;
-            &:hover{
-                transition: 0.2s;
-                background-color: #3651a1;
-            }
-        }
+        @include filaContent(#6E83E0, #778CEC, #6E83E0,#3651a1); 
+    }
+    .fila-doing{
+        @include filaContent(#F17B27, #FA802A, #F17B27,#FA802A); 
+    }
+    .fila-finish{
+        @include filaContent(#45C8C7, #46BAB9, #45C8C7,#46BAB9); 
     }
     .new-fila{
         margin-top: 3%;

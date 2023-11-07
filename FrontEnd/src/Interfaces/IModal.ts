@@ -1,5 +1,6 @@
 import { IColaboradores } from "./IColaborador"
-import { IFilas } from "./IFila"
+import { IFilaData } from "./IFila"
+import { ITarefaData } from "./ITarefa"
 
 export interface IModalColaborador{
     isOpen: boolean,
@@ -10,10 +11,21 @@ export interface IModalColaborador{
 export interface IModalFila{
     isOpen: boolean,
     close: any,
-    fila: IFilas
+    fila: IFilaData
+}
+
+export interface IModalTarefa{
+    isOpen: boolean,
+    close: any,
+    tarefa: ITarefaData
 }
 
 export interface IModal{
     isOpen: boolean,
     close: any
+}
+
+export interface ITarefaShowContent{
+    close: any,
+    tarefa: ITarefaData
 }

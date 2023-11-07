@@ -6,7 +6,7 @@ const DeleteData = async (idTarefa:number) => {
     return response
 }
 
-export function useTarefasDelete(){
+export default function useTarefasDelete(){
     const queryClient = useQueryClient()
     const mutation = useMutation({
         mutationFn: DeleteData,

@@ -1,17 +1,14 @@
 import { useQuery } from "react-query";
 import { api } from "../axios";
 
-export const fetchData = async (idFila:number) => {
-    const response = await api.get(`/tarefa/${idFila}`)
+export const fetchData = async () => {
+    const response = await api.get(`/tarefa`)
     return response.data;
 }
 
-export function useTarefasData(idFila:number){
+export function useTarefasData(){
     const query = useQuery({
-        queryFn: async () =>{
-            const data = await fetchData(idFila)
-            return data
-        },
+        queryFn: fetchData,
         queryKey: ['tarefa-get']
     })
     return query;
