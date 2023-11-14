@@ -12,7 +12,7 @@ export interface ITarefa{
 
 export interface IAlteraTarefa{
     tarefaId: number
-    filaId: number
+    filaId?: number
 }
 
 export interface ITarefaData{
@@ -27,4 +27,10 @@ export interface ITarefaData{
 
 export interface ITarefaContent{
     tarefa: ITarefaData,
+}
+
+export interface IButtonsControler{
+    moverTarefa: ()=>void
+    deletarTarefa: ()=>void
+    close: any;
 }

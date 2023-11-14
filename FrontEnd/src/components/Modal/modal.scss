@@ -6,7 +6,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgb(0, 0, 0, 0.7);
+    background-color: rgb(0, 0, 0, 0.8);
     z-index: 10000;
     .contentStyle{
         @include felxCenter(column, center, center);
@@ -85,7 +85,6 @@
             }
         }
     }
-
     .deleteConteiner{
         @include felxCenter(column, center, center);
         @include widheig(40%, 40%); 
@@ -105,7 +104,6 @@
             @include buttonsDelete();
         }
     }
-
     .content-tarefa{
         @include showTarefaContent(#6E83E0);
     }
@@ -115,8 +113,6 @@
     .content-tarefa-finish{
         @include showTarefaContent(#45C8C7);
     }
-
-
     .tarefa-conteiner{
         @include tarefaAddModal(#6E83E0);
     }
@@ -125,5 +121,47 @@
     }
     .tarefa-conteiner-finish{
         @include tarefaAddModal(#45C8C7);
+    }
+    
+    .contentAleterFila{
+        @include felxCenter(column, center, baseline);
+        @include widheig(40%, 60%); 
+        @include contentModal(20px, #A8A8A8);
+        .title{
+            @include widheig(15%, 100%);
+            @include felxCenter(row, center, center);
+            margin-top: 10px;
+            background-color: transparent;
+            box-shadow: none;
+            h1{
+                font-size: 36px;
+            }
+        }
+        form{
+            width: 100%;
+            height: 70%;
+            @include felxCenter(row, center, center);
+            select{
+                @include widheig(40px, 80%);
+            }
+            button{
+                top: 70%;
+                @include widheig(45px, 20%);
+                background-color: #868686;
+                border: 2px solid white
+            }
+            button:hover{
+                background-color: white;
+                border: 2px solid #868686;
+                color: #868686;
+            }
+        }
+        .btn-close{
+            @include widheig(50px, 50px);
+            background-color: #A8A8A8;
+            &:hover{
+                background-color: #868686;
+            }
+        }
     }
 }
