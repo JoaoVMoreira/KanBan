@@ -70,6 +70,9 @@ a{
 }
 @mixin filaContent($bkColor, $bkColorHover, $buttonColor, $buttonColorHover){
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  max-height: 85%;
+  overflow-y: auto;
+  overflow-x: hidden;
   @include widheig(fit-content, 280px);
   @include felxCenter(column, center, baseline);
   margin-top: 3%;
@@ -106,7 +109,8 @@ a{
     }
   }
   .tarefa{
-      @include widheig(120px, 100%);
+      width: 100%;
+      min-height: 120px;
       color: white;
       @include felxCenter(column, baseline, center);
       h3{
@@ -138,11 +142,11 @@ a{
           border-end-start-radius: 15px;
       }
   }
-  button{
+  .addTarefaBtn, button{
     @include widheig(25px, 25px);
     @include felxCenter(column, center, center);
     position: absolute;
-    top: 110%;
+    top: 105%;
     border: none;
     border-radius: 6px;
     background-color: $buttonColor;
@@ -154,6 +158,10 @@ a{
         transition: 0.2s;
         background-color: $buttonColorHover;
     }
+}
+.addTarefaBtn{
+    position: fixed;
+    top: 93%
 }
 }
 @mixin btnNoBorder($width, $height, $bkColor, $bkColorHover){
@@ -256,7 +264,6 @@ a{
       }
   }
 }
-
 @mixin tarefaAddModal($color){
     @include contentModal(20px, $color);
     @include widheig(65%, 60%);

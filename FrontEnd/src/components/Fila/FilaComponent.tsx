@@ -55,7 +55,7 @@ export function FilaComponent({fila}: IFilaContent){
                 }
             })
             }
-                <button onClick={() => handleAddTarefa(fila)}>+</button>
+                <button className="addTarefaBtn" onClick={() => handleAddTarefa(fila)}>+</button>
             <DeleteFilaModal isOpen={deleteFila} close={handleCloseModal} fila={selectedFila}/>
             <AddModalTarefa isOpen={addTarefa} close={handleCloseModal} fila={selectedFila}/>
         </>

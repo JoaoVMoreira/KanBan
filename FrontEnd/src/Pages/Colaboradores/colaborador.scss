@@ -4,14 +4,16 @@
     @include widheig(98.8vh, 79%); 
 }
 .list-colaboradores{
-    overflow-y: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
     padding: 5px;
     margin-right: 15%;
     margin-top: 8%;
-    overflow-x: hidden;
+    max-height: 85%;
     .colaborador{
         @include felxCenter(column, center, center);
-        @include widheig(110px, 100%);
+        min-height: 110px;
+        width: 100%;
         background-color: white;
         margin-top: 5%;
         border-radius: 15px;
