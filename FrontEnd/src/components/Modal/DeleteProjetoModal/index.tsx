@@ -11,6 +11,7 @@ function DeleteProjetoModal({isOpen, close}:IModal){
         mutate()
         if(isSuccess){
             toast.success("Projeto excluido com sucesso!")
+            localStorage.setItem("projetoId", "0")
             close()
         }
     }

@@ -5,13 +5,14 @@ import { useFilaDelete } from "../../../Services/Filas/useFilasDelete";
 
 function DeleteFilaModal({isOpen, close, fila}:IModalFila){
 
-    const { mutate, isSuccess } = useFilaDelete()
+    const { mutate } = useFilaDelete()
     function deleteFila(evento: any){
         evento.preventDefault()
-        mutate(fila.id)
-        if(isSuccess){
-            toast.success("Fila deletada com sucesso")
-            close()
+        try{
+            mutate(fila.id)
+            toast.success("Fila excluída com sucesso!")
+        }catch(error){
+            toast.error("Ocorreu um erro: " + error)
         }
     }
     if(isOpen){

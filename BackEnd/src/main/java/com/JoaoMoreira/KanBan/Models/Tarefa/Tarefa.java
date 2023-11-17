@@ -30,6 +30,7 @@ public class Tarefa {
 
     @Enumerated(EnumType.STRING)
     private Urgencia urgencia;
+    @Column(length = 4096)
     private String descricao;
     @ManyToOne
     @JoinColumn(name = "fila_Id")

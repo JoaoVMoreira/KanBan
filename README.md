@@ -9,13 +9,10 @@
 
 ## 🖼 Screenshot das telas da aplicação
 
-<img src="./Projeto/addProjeto.png" alt="">
-<img src="./Projeto/colaboradores.png" alt="">
-<img src="./Projeto/" alt="">
-<img src="./Projeto/" alt="">
-<img src="./Projeto/" alt="">
-<img src="./Projeto/" alt="">
-
+<img src="./Projeto/ADD-REMOVE-COLAB.gif" alt="">
+<img src="./Projeto/AddProjeto.gif" alt="">
+<img src="./Projeto/AddTarefa.gif" alt="">
+<img src="./Projeto/ControllTarefa.gif" alt="">
 
 <br/>
 

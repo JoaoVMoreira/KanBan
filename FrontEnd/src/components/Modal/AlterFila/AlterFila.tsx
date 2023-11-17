@@ -17,6 +17,7 @@ export function AlterFila({isOpen, close, tarefa}:IModalTarefa){
                 tarefaId: tarefa.id
             })
             toast.success("Alteração realizada com sucesso!")
+            close()
         }catch(error){
             toast.error("Ocorreu um erro: " + error)
         }

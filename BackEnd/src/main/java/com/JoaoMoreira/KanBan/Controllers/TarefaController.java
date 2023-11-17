@@ -41,9 +41,9 @@ public class TarefaController {
         return ResponseEntity.created(uri).body(new DadosListarTarefa(tarefa));
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<List<DadosListarTarefa>> listar(@PathVariable Long id){
-        var tarefas = repository.BuscarPorFila(id).stream().map(DadosListarTarefa::new).toList();
+    @GetMapping()
+    public ResponseEntity<List<DadosListarTarefa>> listar(){
+        var tarefas = repository.findAll().stream().map(DadosListarTarefa::new).toList();
         return ResponseEntity.ok().body(tarefas);
     }
 
